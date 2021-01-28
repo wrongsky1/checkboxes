@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Чекбокс css</title>
+        <style>
+            .body {
+                margin: 0;
+                padding: 25px;
+                font-family: sans-serif;
+            }
+
+            /* option */
+
+            .option {
+                display: block;
+                margin-bottom: 0.25em;
+            }
+
+            /* check */
+
+            .check { 
+                padding-left: 1.2em;
+            }
+            /* Visually-hidden специальный клас для совместимости со старыми браузерами (скрыть элемент)*/
+            /* .Visually-hidden {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                border: 0;
+                padding: 0;
+                clip: rect(0 0 0 0);
+                overflow: hidden;
+            } */
+            
+            .check__input { 
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+            }
+
+            .check__box {
+                position: absolute;
+                margin-top: 0.2em;
+                margin-left: -1em;
+                border-radius: 0.05em;
+                width: 0.6em;
+                height: 0.6em;
+                background-color: white;
+                box-shadow: 0 0 0 0.1em #4a90e2;
+                
+            }
+
+            /* Checked */
+
+            .check__input:checked + .check__box {
+                background-color: #4a90e2;
+                background-image: url(./images/check.svg);
+            }
+
+            /* Focused */
+
+            .check__input:focus + .check__box {
+                box-shadow: 0 0 0 0.1em #4a90e2
+                            0 0 0 0.2em #7ed321;
+            }
+
+            /* Disabled */
+
+            .check__input:disabled + .check__box {
+                box-shadow: 0 0 0 0.1em #9b9b9b;
+            }
+
+            .check__input:checked:disabled + .check__box {
+                background-color: #9b9b9b;
+            }
+        </style>
+    </head>
+    <body>
+        <label class="check option">
+            <input type="checkbox" class="check__input ">
+            <span class="check__box"></span>
+            Первый    
+        </label>
+        <label class="check option" >
+            <input type="checkbox" class="check__input " checked>
+            <span class="check__box"></span>
+            Второй  
+        </label>
+        <label class="check option" >
+            <input type="checkbox" class="check__input " disabled>
+            <span class="check__box"></span>Третий   
+        </label>
+        <label class="check option">
+            <input type="checkbox" class="check__input " disabled checked>
+            <span class="check__box"></span>
+            Четвертый    
+        </label>
+    </body>
+</html>
